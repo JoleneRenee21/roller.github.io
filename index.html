@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="style.css">
+		<title>Roller World</title>
+   </head>
+   <body>
+		<h1>Welcome to Roller World!</h1>
+		<div id = "flex-layout">
+			<div id = "trackers">
+				<div id = "counter">
+					<label id = "count">0</label> miles skated<br>
+					<br><button id = "skate">Skate!</button>
+				</div>
+				<div id = "money" hidden>
+					$<label id = "dollars">0</label> dollars in wallet<br>
+				</div>
+			</div>
+			<div id = "jobs">
+				<button id = "rink" hidden>Earn $0.60/min with a rental counter job at the skating rink</button>
+				<button id = "sonic" hidden>Earn $1.20/min with a carhop job at Sonic</button>
+				<button id = "coach" hidden>Earn $6/min with a skating coach job at the skating rink</button>
+			</div>
+			<div id = "upgrades">
+				<div><button id = "laces">Upgrade laces to skate 0.1 miles faster when clicking</button> $<label id = "lacePrice">1</label></div>
+				<div><button id = "bearings">Upgrade bearings to skate faster passively</button> $<label id = "bearingPrice">5</label></div>
+				<div><button id = "wheels">Upgrade wheels to skate faster passively</button> $<label id = "wheelPrice">10</label></div>
+			</div>
+		</div>
+		<div id = "save-functionality">
+		</div>
+		<script src="functionality.js"></script>
+   </body>
+</html>
