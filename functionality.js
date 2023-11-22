@@ -10,6 +10,8 @@ let lacePrice = 1;
 let bearingPrice = 5;
 let wheelPrice = 10;
 let upgradeSpeed = 0;
+let save = "";
+let load = "";
 
 // call interval function every 10 seconds
 let myInterval = setInterval(update, 10000)
@@ -104,4 +106,216 @@ function update() {
         document.getElementById("dollars").innerHTML = (money = (money * 100 + (income * 100 / 6)) / 100);
     // update distance for passive upgrades
     document.getElementById("count").innerHTML = (miles = (miles * 10 + upgradeSpeed * 100) / 10);
+}
+
+/* save string is in the format:
+    xmoneyxmilesxspeedxupgradeSpeedxlacesxbearingsxwheelsx */
+// generate save string
+document.getElementById("save").onclick = function(){
+    save += "x";
+    save += money;
+    save += "x";
+    save += miles;
+    save += "x";
+    save += speed;
+    save += "x";
+    save += upgradeSpeed;
+    save += "x";
+    save += laces;
+    save += "x";
+    save += bearings;
+    save += "x";
+    save += wheels;
+    save += "x";
+    window.alert("Save this string somewhere safe to reload your progress from this point:\n" + save);
+    save = "";
+}
+
+// receive save string input
+document.getElementById("load").onclick = function(){
+    load = prompt("Enter a save string:");
+    let text;
+    let bad = true;
+    let saveMoney = "";
+    let saveMiles = "";
+    let saveSpeed = "";
+    let saveUpgradeSpeed = "";
+    let saveLaces = "";
+    let saveBearings = "";
+    let saveWheels = "";
+    // check for good string
+    if (load != null && load != "")
+    {
+        let count = 0;
+        let flag = false;
+        for (var i = 0; i < load.length; i++)
+        {
+            // correct number of 'x's
+            if (load.charAt(i) === "x")
+            {
+                count ++;
+            }
+            // no random characters in variables, only digits or periods
+            else if (parseInt(load.charAt(i)) != load.charAt(i) && load.charAt(i) != ".")
+            {
+                flag = true;
+            }
+        }
+        // good string
+        if (count === 8 && flag === false)
+        {
+            bad = false;
+        }
+    }
+    // no user input received
+    if (load == null || load == "") {
+        text = "No save string entered.";
+        alert(text);
+        return;
+    }
+    // good string entered
+    else if (bad === false) {
+        /* save string is in the format:
+            xmoneyxmilesxspeedxupgradeSpeedxlacesxbearingsxwheelsx */
+        // parse string for variables
+        // remove the first 'x'
+        load = load.slice(1);
+        let i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the money from string
+        saveMoney += load.slice(0, i);
+        if (saveMoney.length < 1)
+        {
+            bad = true;
+        }
+        // remove the money and next 'x'
+        load = load.slice(i+1);
+        i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the miles from string
+        saveMiles += load.slice(0, i);
+        if (saveMiles.length < 1)
+        {
+            bad = true;
+        }
+        // remove the miles and next 'x'
+        load = load.slice(i+1);
+        i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the speed from string
+        saveSpeed += load.slice(0, i);
+        if (saveSpeed.length < 1)
+        {
+            bad = true;
+        }
+        // remove the speed and next 'x'
+        load = load.slice(i+1);
+        i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the upgradeSpeed from string
+        saveUpgradeSpeed += load.slice(0, i);
+        if (saveUpgradeSpeed.length < 1)
+        {
+            bad = true;
+        }
+        // remove the upgradeSpeed and next 'x'
+        load = load.slice(i+1);
+        i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the laces from string
+        saveLaces += load.slice(0, i);
+        if (saveLaces.length < 1)
+        {
+            bad = true;
+        }
+        // remove the laces and next 'x'
+        load = load.slice(i+1);
+        i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the bearings from string
+        saveBearings += load.slice(0, i);
+        if (saveBearings.length < 1)
+        {
+            bad = true;
+        }
+        // remove the bearings and next 'x'
+        load = load.slice(i+1);
+        i = 0;
+        while (load.charAt(i) != 'x')
+        {
+            i++;
+        }
+        // hold the wheels from string
+        saveWheels += load.slice(0, i);
+        if (saveWheels.length < 1)
+        {
+            bad = true;
+        }
+        // remove the wheels and last 'x'
+        load = load.slice(i+1);
+        i = 0;
+        if (load.length > 0)
+        {
+            bad = true;
+        }
+    }
+    // bad string entered
+    if (bad) {
+        text = "Error in entered save string."
+        alert(text);
+        return;
+    }
+    // set all values to saved values and update pricing for upgrades
+    money = Number(saveMoney);
+    miles = Number(saveMiles);
+    speed = Number(saveSpeed);
+    upgradeSpeed = Number(saveUpgradeSpeed);
+    laces = Number(saveLaces);
+    bearings = Number(saveBearings);
+    wheels = Number(saveWheels);
+    lacePrice = 1 + (1 * laces);
+    bearingPrice = 1 + (1 * bearings);
+    wheelPrice = 1 + (1 * wheels);
+    // update html
+    document.getElementById("dollars").innerHTML = money;
+    if (money > 0)
+    {
+        // Display money earned
+        document.getElementById("money").removeAttribute('hidden');
+        working = true;
+    }
+    document.getElementById("count").innerHTML = miles;
+    // Display jobs available
+    if (miles >= 1) /*10*/{
+        document.getElementById("rink").removeAttribute('hidden');
+        // Display money earned
+        document.getElementById("money").removeAttribute('hidden');
+    }
+    if (miles >= 2) //50
+        document.getElementById("sonic").removeAttribute('hidden');
+    if (miles >= 3) //100
+        document.getElementById("coach").removeAttribute('hidden');
+    document.getElementById("lacePrice").innerHTML = (lacePrice);
+    document.getElementById("bearingPrice").innerHTML = (bearingPrice);
+    document.getElementById("wheelPrice").innerHTML = (wheelPrice);
+    text = "Save game loaded";
+    alert(text);
 }
