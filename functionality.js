@@ -32,6 +32,7 @@ document.getElementById("skate").onclick = function(){
         document.getElementById("sonic").removeAttribute('hidden');
     if (miles === 3) //100
         document.getElementById("coach").removeAttribute('hidden');
+    message();
 }
 
 // Jobs
@@ -318,4 +319,23 @@ document.getElementById("load").onclick = function(){
     document.getElementById("wheelPrice").innerHTML = (wheelPrice);
     text = "Save game loaded";
     alert(text);
+}
+
+function message(){
+    if (miles === 0.1)
+        document.getElementById("message").innerHTML = "";
+    if (miles === 1)
+        document.getElementById("message").innerHTML = "<br><br>Start working to earn income!";
+    if (miles > 1 && working)
+        document.getElementById("message").innerHTML = "<br><br>Purchase an upgrade to skate faster!";
+    if (laces > 0 || wheels > 0 || bearings > 0)
+        document.getElementById("message").innerHTML = "";
+    if (miles >= 10)
+        document.getElementById("message").innerHTML = "<br><br>You're really rolling now, keep it up!";
+    if (miles >= 15)
+        document.getElementById("message").innerHTML = "";
+    if (money >= 10)
+        document.getElementById("message").innerHTML = "<br><br>You've worked hard, enjoy spending it!";
+    if (money >= 25)
+        document.getElementById("message").innerHTML = "";
 }
