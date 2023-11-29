@@ -1,5 +1,5 @@
 h1 {
-  color: navy;
+  color: #00994C;
   text-align: center;
   font-family: Georgia;
 }
@@ -49,12 +49,28 @@ h1 {
 	align-items: center;
 	justify-content: space-around;
 }
+#bottom-row{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
 #save-functionality {
 	background: yellow;
 	width: 15%;
 	height: 150px;
+	order: 1;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
+}
+#message{
+	background: orange;
+	font-family: Georgia;
+	font-size: 24px;
+	color: #00994C;
+	width: 85%;
+	order: 2;
+	height: 150px;
+	text-align: center;
 }
