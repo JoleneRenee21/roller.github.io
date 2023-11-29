@@ -12,26 +12,31 @@
 			<div id = "trackers">
 				<div id = "counter">
 					<label id = "count">0</label> miles skated<br>
-					<br><button id = "skate">Skate!</button>
+					<br><button id = "skate" title = "Click to increase miles skated and unlock jobs">Skate!</button>
 				</div>
 				<div id = "money" hidden>
 					$<label id = "dollars">0</label> dollars in wallet<br>
 				</div>
 			</div>
-			<div id = "jobs">
+			<div id = "jobs" title = "Click to select a job and change income, one job can be worked at a time">
 				<button id = "rink" hidden>Earn $0.60/min with a rental counter job at the skating rink</button>
 				<button id = "sonic" hidden>Earn $1.20/min with a carhop job at Sonic</button>
 				<button id = "coach" hidden>Earn $6/min with a skating coach job at the skating rink</button>
 			</div>
-			<div id = "upgrades">
+			<div id = "upgrades" title = "Click to purchase upgrades with earned income and increase distance traveled, multiple upgrades allowed">
 				<div><button id = "laces">Upgrade laces to skate 0.1 miles faster when clicking</button> $<label id = "lacePrice">1</label></div>
 				<div><button id = "bearings">Upgrade bearings to skate faster passively</button> $<label id = "bearingPrice">5</label></div>
 				<div><button id = "wheels">Upgrade wheels to skate faster passively</button> $<label id = "wheelPrice">10</label></div>
 			</div>
 		</div>
-		<div id = "save-functionality">
-			<button id = "save">Save Game</button>
-			<button id = "load">Load Game</button>
+		<div id = "bottom-row">
+			<div id = "save-functionality">
+				<button id = "save" title = "Click to generate a string with your current game state">Save Game</button>
+				<button id = "load" title = "Click to enter a string and load a saved game state">Load Game</button>
+			</div>
+			<div id = "message">
+				<p><br>Click skate to start!</p>
+			</div>
 		</div>
 		<script src="functionality.js"></script>
    </body>
