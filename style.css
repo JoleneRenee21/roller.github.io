@@ -1,7 +1,13 @@
 h1 {
-  color: #00994C;
-  text-align: center;
-  font-family: Georgia;
+	color: black;
+	text-align: center;
+	font-family: Georgia;
+}
+button {
+	background-color: light gray;
+	border: 2px solid black;
+	color: black;
+	padding: 7px 10px;
 }
 #flex-layout {
 	display: flex;
@@ -17,12 +23,12 @@ h1 {
 #counter {
 	text-align: center;
 	font-family: Georgia;
-	background: pink;
+	/*background: pink;*/
 	width: 100%;
 	order: 1;
 }
 #money {
-	background: green;
+	/*background: green;*/
 	width: 100%;
 	height: 100px;
 	order: 2;
@@ -30,7 +36,9 @@ h1 {
 	line-height: 100px;
 }
 #jobs {
-	background: blue;
+	/*background: blue;*/
+	border-style: dotted;
+	border-color: black;
 	width: 35%;
 	height: 500px;
 	order: 1;
@@ -40,7 +48,9 @@ h1 {
 	justify-content: space-around;
 }
 #upgrades {
-	background: red;
+	/*background: red;*/
+	border-style: dotted;
+	border-color: black;
 	width: 35%;
 	height: 500px;
 	order: 3;
@@ -55,7 +65,7 @@ h1 {
 	align-items: center;
 }
 #save-functionality {
-	background: yellow;
+	/*background: yellow;*/
 	width: 15%;
 	height: 150px;
 	order: 1;
@@ -65,11 +75,11 @@ h1 {
 	justify-content: space-around;
 }
 #message{
-	background: orange;
+	/*background: orange;*/
 	font-family: Georgia;
 	font-size: 24px;
-	color: #00994C;
-	width: 85%;
+	color: black;
+	width: 70%;
 	order: 2;
 	height: 150px;
 	text-align: center;
