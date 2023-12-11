@@ -597,26 +597,26 @@ document.getElementById("load").onclick = function(){
     }
     document.getElementById("count").innerHTML = miles;
     // Display jobs available
-    if (miles >= 1) /*10*/{
+    if (miles >= 5) /*5*/{
         document.getElementById("rink").removeAttribute('hidden');
     }
-    if (miles >= 2) //50
+    if (miles >= 10) //10
         document.getElementById("sonic").removeAttribute('hidden');
-    if (miles >= 3) //100
+    if (miles >= 15) //15
         document.getElementById("coach").removeAttribute('hidden');
-    if (miles >= 4) //20
+    if (miles >= 20) //20
         document.getElementById("party").removeAttribute('hidden');
-    if (miles >= 5) //25
+    if (miles >= 25) //25
         document.getElementById("freestyle").removeAttribute('hidden');
-    if (miles >= 6) //50
+    if (miles >= 50) //50
         document.getElementById("derby").removeAttribute('hidden');
-    if (miles >= 7) //75
+    if (miles >= 75) //75
         document.getElementById("manager").removeAttribute('hidden');
-    if (miles >= 8) //100
+    if (miles >= 100) //100
         document.getElementById("influencer").removeAttribute('hidden');
-    if (miles >= 9) //150
+    if (miles >= 150) //150
         document.getElementById("xGames").removeAttribute('hidden');
-    if (miles >= 10) //200
+    if (miles >= 200) //200
         document.getElementById("olympics").removeAttribute('hidden');
     document.getElementById("lacePrice").innerHTML = (lacePrice);
     document.getElementById("bearingPrice").innerHTML = (bearingPrice);
