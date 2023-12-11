@@ -37,28 +37,26 @@ document.getElementById("skate").onclick = function(){
     miles = (miles * 10 + speed * 10) / 10;
     document.getElementById("count").innerHTML = miles;
     // Display jobs available
-    if (miles === 1) /*5*/{
+    if (miles === 5) /*5*/{
         document.getElementById("rink").removeAttribute('hidden');
-        // Display money earned
-        document.getElementById("money").removeAttribute('hidden');
     }
-    if (miles === 2) //10
+    if (miles >= 10) //10
         document.getElementById("sonic").removeAttribute('hidden');
-    if (miles === 3) //15
+    if (miles >= 15) //15
         document.getElementById("coach").removeAttribute('hidden');
-    if (miles === 4) //20
+    if (miles >= 20) //20
         document.getElementById("party").removeAttribute('hidden');
-    if (miles === 5) //25
+    if (miles >= 25) //25
         document.getElementById("freestyle").removeAttribute('hidden');
-    if (miles === 6) //50
+    if (miles >= 50) //50
         document.getElementById("derby").removeAttribute('hidden');
-    if (miles === 7) //75
+    if (miles >= 75) //75
         document.getElementById("manager").removeAttribute('hidden');
-    if (miles === 8) //100
+    if (miles >= 100) //100
         document.getElementById("influencer").removeAttribute('hidden');
-    if (miles === 9) //150
+    if (miles >= 150) //150
         document.getElementById("xGames").removeAttribute('hidden');
-    if (miles === 10) //200
+    if (miles >= 200) //200
         document.getElementById("olympics").removeAttribute('hidden');
     message();
 }
@@ -136,7 +134,7 @@ document.getElementById("laces").onclick = function(){
     speed += 0.1;
     laces += 1;
     // Update money based on cost
-    money -= lacePrice;
+    money = (money * 10 - lacePrice * 10) / 10;
     // Update cost of upgrade
     lacePrice += 1;
     document.getElementById("lacePrice").innerHTML = (lacePrice);
@@ -150,7 +148,7 @@ document.getElementById("bearings").onclick = function(){
     upgradeSpeed += 0.1;
     bearings += 1;
     // Update money based on cost
-    money -= bearingPrice;
+    money = (money * 10 - bearingPrice * 10) / 10;
     // Update cost of upgrade
     bearingPrice += 1;
     document.getElementById("bearingPrice").innerHTML = (bearingPrice);
@@ -164,7 +162,7 @@ document.getElementById("wheels").onclick = function(){
     upgradeSpeed += 0.1;
     wheels += 1;
     // Update money based on cost
-    money -= wheelPrice;
+    money = (money * 10 - wheelPrice * 10) / 10;
     // Update cost of upgrade
     wheelPrice += 1;
     document.getElementById("wheelPrice").innerHTML = (wheelPrice);
@@ -178,7 +176,7 @@ document.getElementById("plates").onclick = function(){
     upgradeSpeed += 0.1;
     plates += 1;
     // Update money based on cost
-    money -= platePrice;
+    money = (money * 10 - platePrice * 10) / 10;
     // Update cost of upgrade
     platePrice += 1;
     document.getElementById("platePrice").innerHTML = (platePrice);
@@ -192,7 +190,7 @@ document.getElementById("boots").onclick = function(){
     upgradeSpeed += 0.1;
     boots += 1;
     // Update money based on cost
-    money -= bootPrice;
+    money = (money * 10 - bootPrice * 10) / 10;
     // Update cost of upgrade
     bootPrice += 1;
     document.getElementById("bootPrice").innerHTML = (bootPrice);
@@ -206,7 +204,7 @@ document.getElementById("kneepads").onclick = function(){
     speed += 0.5;
     kneepads += 1;
     // Update money based on cost
-    money -= kneepadPrice;
+    money = (money * 10 - kneepadPrice * 10) / 10;
     // Update cost of upgrade
     kneepadPrice += 1;
     document.getElementById("kneepadPrice").innerHTML = (kneepadPrice);
@@ -220,7 +218,7 @@ document.getElementById("helmet").onclick = function(){
     upgradeSpeed += 0.1;
     helmet += 1;
     // Update money based on cost
-    money -= helmetPrice;
+    money = (money * 10 - helmetPrice * 10) / 10;
     // Update cost of upgrade
     helmetPrice += 1;
     document.getElementById("helmetPrice").innerHTML = (helmetPrice);
@@ -234,7 +232,7 @@ document.getElementById("elbowPads").onclick = function(){
     upgradeSpeed += 0.1;
     elbowPads += 1;
     // Update money based on cost
-    money -= elbowPadPrice;
+    money = (money * 10 - elbowPadPrice * 10) / 10;
     // Update cost of upgrade
     elbowPadPrice += 1;
     document.getElementById("elbowPadPrice").innerHTML = (elbowPadPrice);
@@ -248,7 +246,7 @@ document.getElementById("trucks").onclick = function(){
     upgradeSpeed += 0.1;
     trucks += 1;
     // Update money based on cost
-    money -= truckPrice;
+    money = (money * 10 - truckPrice * 10) / 10;
     // Update cost of upgrade
     truckPrice += 1;
     document.getElementById("truckPrice").innerHTML = (truckPrice);
@@ -262,7 +260,7 @@ document.getElementById("cushions").onclick = function(){
     speed += 1.0;
     cushions += 1;
     // Update money based on cost
-    money -= cushionPrice;
+    money = (money * 10 - cushionPrice * 10) / 10;
     // Update cost of upgrade
     cushionPrice += 1;
     document.getElementById("cushionPrice").innerHTML = (cushionPrice);
@@ -595,16 +593,12 @@ document.getElementById("load").onclick = function(){
     document.getElementById("dollars").innerHTML = money;
     if (money > 0)
     {
-        // Display money earned
-        document.getElementById("money").removeAttribute('hidden');
         working = true;
     }
     document.getElementById("count").innerHTML = miles;
     // Display jobs available
     if (miles >= 1) /*10*/{
         document.getElementById("rink").removeAttribute('hidden');
-        // Display money earned
-        document.getElementById("money").removeAttribute('hidden');
     }
     if (miles >= 2) //50
         document.getElementById("sonic").removeAttribute('hidden');
@@ -641,18 +635,18 @@ document.getElementById("load").onclick = function(){
 function message(){
     if (miles === 0.1)
         document.getElementById("message").innerHTML = "";
-    if (miles === 1)
+    if (miles === 5)
         document.getElementById("message").innerHTML = "<br><br>Start working to earn income!";
-    if (miles > 1 && working)
+    if (miles > 15 && working)
         document.getElementById("message").innerHTML = "<br><br>Purchase an upgrade to skate faster!";
-    if (laces > 0 || wheels > 0 || bearings > 0)
+    if (laces > 0 || wheels > 0 || bearings > 0 || laces > 0 || wheels > 0 || bearings > 0)
         document.getElementById("message").innerHTML = "";
     if (miles >= 10)
         document.getElementById("message").innerHTML = "<br><br>You're really rolling now, keep it up!";
     if (miles >= 15)
         document.getElementById("message").innerHTML = "";
-    if (money >= 10)
+    if (money >= 50)
         document.getElementById("message").innerHTML = "<br><br>You've worked hard, enjoy spending it!";
-    if (money >= 25)
+    if (money >= 75)
         document.getElementById("message").innerHTML = "";
 }
